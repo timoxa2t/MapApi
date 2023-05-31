@@ -30,8 +30,16 @@ async function create(marker) {
   return await Marker.create(marker);
 }
 
+async function remove(id) {
+  return await Marker.destroy({
+    where: { id }
+  });
+}
+
+
 module.exports = {
   Marker,
   getAll,
   create,
+  remove
 }
