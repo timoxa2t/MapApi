@@ -1,26 +1,4 @@
-const { Sequelize, DataTypes, Model } = require('sequelize');
-const { sequelize } = require('../db');
-
-
-const Marker = sequelize.define('Marker', {
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  description: {
-    type: DataTypes.STRING
-  },
-  latitude: {
-    type: DataTypes.FLOAT,
-    allowNull: false,
-  },
-  longitude: {
-    type: DataTypes.FLOAT,
-    allowNull: false,
-  },
-}, {});
-
-Marker.sync();
+const { Marker } = require('../mdoels/Marker');
 
 async function getAll() {
   return await Marker.findAll();
@@ -38,7 +16,6 @@ async function remove(id) {
 
 
 module.exports = {
-  Marker,
   getAll,
   create,
   remove

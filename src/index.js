@@ -23,7 +23,7 @@ app.delete('/marker/:id', (req, res)  => {
   const { id } = req.params;
 
   MarkerServise.remove(Number(id))
-    .then(result => res.sendStatus(200));
+    .then(() => res.sendStatus(200));
 });
 
 app.listen(3000);
